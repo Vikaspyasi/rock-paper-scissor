@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Rock Paper Scissors</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="main-container">
+            <div class="score-container" id="score-container">
+                <div class="game-title">
+                    Rock <br />
+                    Paper <br />
+                    Scissors
+                </div>
+                <div class="score-board">
+                    <div class="computer-score">
+                        Computer Score <span class="score-digit" id="computer-score">0</span>
+                    </div>
+                    <div class="your-score">
+                        Your<br /> Score <span class="score-digit" id="player-score">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-area" id="game-area">
+                <div class="game-choices">
+                    <div class="buttons-wrapper">
+                        <button class="round-btn choice-rock choice-btn" id="btn-rock" data-selection="rock">
+                            <span class="btn-inner-circle">
+                                <img src="assets/rock.png" alt="fist denoting rock" />
+                            </span>
+                        </button>
+                        <button class="round-btn choice-scissors choice-btn" id="btn-scissors" data-selection="scissors">
+                            <span class="btn-inner-circle">
+                                <img src="assets/scissors.png" alt="two fingers denoting scissors" />
+                            </span>
+                        </button>
+                        <button class="round-btn choice-paper choice-btn" id="btn-paper" data-selection="paper">
+                            <span class="btn-inner-circle">
+                                <img src="assets/paper.png" alt="hand denoting paper" />
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rules-modal" id="rules-modal">
+                <button class="modal-close-btn" id="close-button">X</button>
+                <div class="modal-header">Game Rules</div>
+                <div class="modal-body">
+                    <ul class="rule-list">
+                        <li>
+                            <p>
+                                Rock beats scissors, scissors beat paper, and paper beats rock.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Agree ahead of time whether you’ll count off “rock, paper, scissors, shoot” or just “rock, paper, scissors.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Use rock, paper, scissors to settle minor decisions or simply play to pass the time
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                If both players lay down the same hand, each player lays down another hand
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="result-area" id="result-area">
+                <div class="player-choice">
+                    <div class="choice-label">you picked</div>
+                    <button class="round-btn choice-rock" id="player-choice-display">
+                        <span class="btn-inner-circle">
+                            <img src="assets/rock.png" alt="fist denoting rock" />
+                        </span>
+                    </button>
+                </div>
+                <div class="game-status">
+                    <div class="win-or-loss-message" id="tie-message">You Win</div>
+                    <div class="opponent-text" id="opponent-text">Against PC</div>
+                    <button class="replay-button" id="replay-button">Play Again</button>
+                </div>
+                <div class="pc-choice">
+                    <div class="choice-label">pc picked</div>
+                    <button class="round-btn choice-scissors" id="pc-choice-display">
+                        <span class="btn-inner-circle">
+                            <img src="assets/scissors.png" alt="two fingers denoting scissors" />
+                        </span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="win-screen" id="win-screen">
+                <div class="star-bg">
+                    <img src="assets/stars.png" alt="background stars" />
+                    <div class="trophy-icon"><img src="assets/victory.png" alt="trophy" /></div>
+                </div>
+                <div class="hurray-text">HURRAY!!</div>
+                <div class="win-message">You won the game</div>
+                <button class="replay-button" id="play-again-win-btn">Play Again</button>
+            </div>
+        </div>
+
+        <button class="next-button" id="next-button">Next</button>
+        <button class="rules-button" id="rules-button">Rules</button>
+        <button class="rules-button rules-win-button" id="rules-win-button">Rules</button>
+
+        <script src="script.js"></script>
+    </body>
+</html>

@@ -1,0 +1,404 @@
+@import url("https://fonts.googleapis.com/css2?family=Dangrek&family=Roboto&display=swap");
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #8cc461;
+    font-family: "Roboto", sans-serif;
+    min-height: 100vh;
+    width: 100vw;
+}
+.main-container {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+}
+.game-area {
+    height: 65vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+.score-container {
+    position: absolute;
+    height: 145px;
+    width: 700px;
+    margin-top: 35px;
+    border: 2px solid white;
+    color: white;
+    border-radius: 13px;
+    display: flex;
+    padding: 4px 10px;
+}
+.game-title {
+    margin-left: 5px;
+    font-size: 35px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    letter-spacing: 0.3rem;
+}
+.score-board {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
+.computer-score,
+.your-score {
+    width: 140px;
+    height: 123px;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 9px;
+    color: #656565;
+    font-size: 16px;
+    text-transform: uppercase;
+    display: flex;
+    margin-right: 15px;
+    text-align: center;
+    font-weight: 600;
+    flex-direction: column;
+    letter-spacing: 0.2rem;
+    padding-top: 7px;
+}
+.score-digit {
+    position: relative;
+    font-weight: 700;
+    font-size: 68px;
+    display: flex;
+    bottom: 5px;
+    padding-top: 5px;
+    justify-content: center;
+    color: #252525;
+}
+.game-choices {
+    position: absolute;
+    top: 240px;
+    height: 300px;
+}
+.buttons-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 335px;
+    width: 539px;
+    position: relative;
+}
+.buttons-wrapper::after {
+    background-image: url("./assets/bg-triangle.svg");
+    content: "";
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    top: 45px;
+    left: 95px;
+    position: absolute;
+    transform: scale(0.8);
+    z-index: -1;
+}
+
+.round-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 50%;
+    height: 130px;
+    width: 130px;
+    margin: 0 25px;
+    cursor: pointer;
+    filter: drop-shadow(-1px 1px 11px rgba(0, 0, 0, 0.35));
+}
+.round-btn .btn-inner-circle {
+    background-color: #fff;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    height: 95px;
+    width: 95px;
+    position: relative;
+}
+.choice-rock {
+    background-color: #0074b6;
+}
+.choice-scissors {
+    background-color: #bd00ff;
+    rotate: 10deg;
+}
+.choice-paper {
+    background-color: #ffa943;
+}
+
+.round-btn:focus {
+    outline: none;
+}
+.round-btn:active {
+    transform: scale(0.9);
+}
+.rules-modal {
+    box-sizing: border-box;
+    position: fixed;
+    width: 280px;
+    height: 330px;
+    bottom: 75px;
+    right: 45px;
+    display: none;
+    background: #004429;
+    border: 7px solid #ffffff;
+    border-radius: 13px;
+    z-index: 1;
+}
+.modal-header {
+    position: absolute;
+    width: 260px;
+    height: 27px;
+    margin: 20px auto;
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 29px;
+    line-height: 34px;
+    text-align: center;
+    color: #ffffff;
+}
+.modal-body {
+    position: absolute;
+    width: 245px;
+    height: 30px;
+    top: 50px;
+}
+.rule-list {
+    padding-left: 15px;
+    width: 100%;
+}
+.rule-list li {
+    display: list-item;
+    list-style-type: square;
+    color: #ffd600;
+    margin-left: 10px;
+}
+.rule-list li p {
+    display: inline-block;
+    padding-left: 13px;
+    margin: 0;
+    padding-bottom: 10px;
+    font-size: 13.5px;
+    color: #fff;
+}
+
+.rules-button {
+    position: fixed;
+    bottom: 30px;
+    right: 40px;
+    box-sizing: border-box;
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    font-family: "Roboto";
+    text-transform: uppercase;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 21px;
+    line-height: 25px;
+    letter-spacing: 0.1em;
+    background-color: #8cc461;
+    color: #ffffff;
+    padding: 5px 25px;
+    cursor: pointer;
+}
+.rules-win-button {
+    position: fixed;
+    visibility: hidden;
+    bottom: 30px;
+    right: 170px;
+}
+.next-button {
+    position: fixed;
+    bottom: 30px;
+    right: 40px;
+    box-sizing: border-box;
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    font-family: "Roboto";
+    text-transform: uppercase;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 21px;
+    line-height: 25px;
+    letter-spacing: 0.1em;
+    background-color: #8cc461;
+    color: #ffffff;
+    padding: 5px 25px;
+    cursor: pointer;
+}
+.modal-close-btn {
+    position: absolute;
+    top: -30px;
+    left: 235px;
+    width: 40px;
+    height: 40px;
+    background-color: red;
+    border: 3.5px solid #ffffff;
+    border-radius: 30px;
+    font-size: 27px;
+    transform: scale(1.5);
+    font-family: "Dangrek", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.result-area {
+    position: relative;
+    height: 250px;
+    width: 730px;
+    top: 280px;
+    display: none;
+    justify-content: space-around;
+}
+.player-choice,
+.pc-choice {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+.choice-label {
+    text-transform: uppercase;
+    font-family: "Roboto", sans-serif;
+    font-size: 17px;
+    color: #ffffff;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    display: flex;
+    justify-content: center;
+}
+.winning-choice::after {
+    content: "";
+    border-radius: 50%;
+    box-shadow: 0 0 0 15px #3b6720, 0 0 0 35px rgba(29, 168, 43, 0.79),
+        0 0 0 60px rgba(46, 154, 37, 0.39);
+    animation: winner-glow 1s ease forwards;
+    position: absolute;
+    z-index: -2;
+}
+@keyframes winner-glow {
+    from {
+        opacity: 0;
+        height: 75%;
+        width: 75%;
+    }
+    to {
+        opacity: 1;
+        height: 100%;
+        width: 100%;
+    }
+}
+.game-status {
+    position: relative;
+    top: 60px;
+}
+.win-or-loss-message {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 800;
+    font-size: 39px;
+    text-transform: uppercase;
+    line-height: 46px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    color: #ffffff;
+}
+.opponent-text {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 800;
+    font-size: 20px;
+    text-transform: uppercase;
+    line-height: 29px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    color: #ffffff;
+}
+.replay-button {
+    font-family: "Roboto";
+    font-style: normal;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: 0.1em;
+    background-color: #fff;
+    color: #6b6b6b;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 174px;
+    height: 44px;
+    position: relative;
+    margin: 10px auto;
+    cursor: pointer;
+}
+.result-area .round-btn {
+    margin: 50px;
+    transform: scale(1.2);
+}
+.win-screen {
+    display: none;
+    flex-direction: column;
+}
+.star-bg {
+    position: fixed;
+    top: 20px;
+}
+.game-title img {
+    scale: 0.8;
+}
+.trophy-icon {
+    position: absolute;
+    top: 95px;
+    right: 140px;
+}
+.hurray-text {
+    position: relative;
+    top: 305px;
+    margin: 10px auto;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 91px;
+    line-height: 107px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+.win-message {
+    position: relative;
+    top: 300px;
+    margin: 0 auto;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 41px;
+    line-height: 48px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+.win-screen .replay-button {
+    top: 300px;
+    margin: 30px auto;
+}
